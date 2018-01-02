@@ -9,11 +9,13 @@ import org.junit.Assert.assertEquals
 
 
 object CheckProductRestrictionTest : Spek({
+    val presenterSpy = CheckProductRestrictionPresenter()
     describe("Check product restriction use case"){
         val checker = CheckProductRestriction(RestrictionGatewaySpy())
         on("Check a product with restriction"){
             val input = CheckProductRestrictionRequestModel("p1", "r1")
-            val isRestricted = checker.check(input).isRestricted()
+            checker.check(input, presenterSpy)
+            val isRestricted = presenterSpy.model.restricted
 
             it("Should return true for this parameters "){
                 assertEquals(true, isRestricted)
@@ -21,7 +23,8 @@ object CheckProductRestrictionTest : Spek({
         }
         on("Check a product without restriction"){
             val input = CheckProductRestrictionRequestModel("p1", "r5")
-            val isRestricted = checker.check(input).isRestricted()
+            checker.check(input, presenterSpy)
+            val isRestricted = presenterSpy.model.restricted
 
             it("Should return false for this parameters "){
                 assertEquals(false, isRestricted)

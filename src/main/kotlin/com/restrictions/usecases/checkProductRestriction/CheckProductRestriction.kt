@@ -4,10 +4,10 @@ import com.restrictions.gateways.RestrictionGateway
 
 class CheckProductRestriction(private val restrictionGateway: RestrictionGateway): CheckProductRestrictionInputBoundary {
 
-    override fun check(input: CheckProductRestrictionRequestModel) : CheckProductRestrictionResponseModel{
+    override fun check(input: CheckProductRestrictionRequestModel, presenter: CheckProductRestrictionOutputBoundary) {
 
         val productRestrictions = restrictionGateway.getProductRestrictions(input.getProductCode())
         val restriction = restrictionGateway.getRestriction(input.getRestrictionCode())
-        return CheckProductRestrictionResponseModel(productRestrictions.contains(restriction))
+        presenter.present(CheckProductRestrictionResponseModel(productRestrictions.contains(restriction)))
     }
 }

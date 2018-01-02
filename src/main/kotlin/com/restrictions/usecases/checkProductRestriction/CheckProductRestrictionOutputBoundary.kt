@@ -1,5 +1,6 @@
 package com.restrictions.usecases.checkProductRestriction
 
 interface CheckProductRestrictionOutputBoundary {
-    fun isRestricted(): Boolean
+    fun getViewModel(): CheckProductRestrictionViewModel
+    fun present(responseModel: CheckProductRestrictionResponseModel)
 }
