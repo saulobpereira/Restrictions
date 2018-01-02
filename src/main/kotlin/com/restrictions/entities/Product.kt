@@ -1,5 +1,3 @@
 package com.restrictions.entities
 
-class Product {
-    var code: String = ""
-}
+data class Product(var code: String)
