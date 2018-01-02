@@ -5,7 +5,7 @@ import com.restrictions.gateways.RestrictionGateway
 
 class RestrictionGatewayTest: RestrictionGateway {
     override fun getRestriction(code: String): Restriction {
-        return Restriction("r1")
+        return Restriction(code)
     }
 
     override fun getProductRestrictions(productCode: String): List<Restriction> {
