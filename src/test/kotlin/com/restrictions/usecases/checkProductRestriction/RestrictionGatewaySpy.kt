@@ -3,7 +3,7 @@ package com.restrictions.usecases.checkProductRestriction
 import com.restrictions.entities.Restriction
 import com.restrictions.gateways.RestrictionGateway
 
-class RestrictionGatewayTest: RestrictionGateway {
+class RestrictionGatewaySpy : RestrictionGateway {
     override fun getRestriction(code: String): Restriction {
         return Restriction(code)
     }
