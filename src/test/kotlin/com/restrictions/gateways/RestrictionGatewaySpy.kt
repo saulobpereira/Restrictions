@@ -1,9 +1,12 @@
-package com.restrictions.usecases.checkProductRestriction
+package com.restrictions.gateways
 
 import com.restrictions.entities.Restriction
-import com.restrictions.gateways.RestrictionGateway
 
 class RestrictionGatewaySpy : RestrictionGateway {
+    override fun addRestrictionToProduct(productCode: String, restrictionCode: String): Boolean {
+        return true
+    }
+
     override fun getRestriction(code: String): Restriction {
         return Restriction(code)
     }
