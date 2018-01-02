@@ -1,11 +1,11 @@
 package com.restrictions.usecases.checkProductRestriction
 
-class CheckProductRestrictionRequestModel(val product: String, val restriction: String) : CheckProductRestrictionInputBoundary {
-    override fun getProductCode(): String{
+class CheckProductRestrictionRequestModel(val product: String, val restriction: String) {
+    fun getProductCode(): String{
         return product
     }
 
-    override fun getRestrictionCode(): String {
+    fun getRestrictionCode(): String {
         return restriction
     }
 }
