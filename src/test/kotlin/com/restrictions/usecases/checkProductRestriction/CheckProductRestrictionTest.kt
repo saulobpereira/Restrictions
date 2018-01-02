@@ -9,7 +9,7 @@ import org.junit.Assert.assertEquals
 
 object CheckProductRestrictionTest : Spek({
     describe("Check product restriction"){
-        val checker = CheckProductRestriction()
+        val checker = CheckProductRestriction(RestrictionGatewayTest())
         on("Check a product with restriction"){
             val input = CheckProductRestrictionRequestModel("p1", "r1")
             val isRestricted = checker.check(input).isRestricted()
@@ -19,5 +19,4 @@ object CheckProductRestrictionTest : Spek({
             }
         }
     }
-
 })
