@@ -9,10 +9,12 @@ import org.junit.Assert
 
 object AssociateRestrictionTest: Spek({
     describe("Associate restriction use case"){
+        val presenter = AssociateRestrictionPresenter()
         val restrictor = AssociateRestriction(RestrictionGatewaySpy())
         on("Associate a restriction to a product"){
             val input = AssociateRestrictionRequestModel("p7", "r7")
-            val isSuccessful = restrictor.associate(input).isSuccessful()
+            restrictor.associate(input, presenter)
+            val isSuccessful = presenter.getViewModel().success
 
             it("Should return true for this parameters "){
                 Assert.assertEquals(true, isSuccessful)
