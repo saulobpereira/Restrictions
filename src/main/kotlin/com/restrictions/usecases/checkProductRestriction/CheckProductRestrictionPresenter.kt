@@ -8,5 +8,6 @@ class CheckProductRestrictionPresenter: CheckProductRestrictionOutputBoundary {
 
     override fun present(responseModel: CheckProductRestrictionResponseModel) {
         model.restricted = responseModel.isRestricted()
+        model.error = responseModel.error
     }
 }

@@ -2,6 +2,10 @@ package com.restrictions.application
 
 import com.restrictions.http.ParametersParser
 import com.restrictions.implementations.InMemoryRestrictionsGateway
+import com.restrictions.usecases.associateRestriction.AssociateRestriction
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionController
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionPresenter
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionViewImpl
 import com.restrictions.usecases.checkProductRestriction.CheckProductRestriction
 import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionController
 import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionPresenter
@@ -23,10 +27,17 @@ class RestrictionsApp {
 }
 
 fun Application.module() {
+    val restrictionsGateway = InMemoryRestrictionsGateway()
     val checkProductRestrictionController = CheckProductRestrictionController(
-            CheckProductRestriction(InMemoryRestrictionsGateway()),
+            CheckProductRestriction(restrictionsGateway),
             CheckProductRestrictionPresenter(),
             CheckProductRestrictionViewImpl())
+
+    val associateRestrictionController = AssociateRestrictionController(
+            AssociateRestriction(restrictionsGateway),
+            AssociateRestrictionPresenter(),
+            AssociateRestrictionViewImpl()
+    )
     install(DefaultHeaders)
     install(CallLogging)
     install(Routing) {
@@ -37,7 +48,7 @@ fun Application.module() {
             call.respondText(checkProductRestrictionController.handle(ParametersParser.parse(call.parameters)), ContentType.Text.Html)
         }
         post("/AssociateRestriction") {
-            call.respondText("AssociateRestriction", ContentType.Text.Html)
+            call.respondText(associateRestrictionController.handle(ParametersParser.parse(call.parameters)), ContentType.Text.Html)
         }
     }
 }

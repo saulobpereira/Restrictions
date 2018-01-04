@@ -8,4 +8,8 @@ class AssociateRestrictionRequestModel(val product: String, val restriction: Str
     fun getRestrictionCode(): String {
         return restriction
     }
+
+    fun isValid():Boolean{
+        return product.isNotBlank() && restriction.isNotBlank()
+    }
 }

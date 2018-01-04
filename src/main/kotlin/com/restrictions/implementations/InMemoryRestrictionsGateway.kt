@@ -4,14 +4,14 @@ import com.restrictions.entities.Restriction
 import com.restrictions.gateways.RestrictionGateway
 
 class InMemoryRestrictionsGateway: RestrictionGateway {
-    var restrictionsMap: HashMap<String, ArrayList<Restriction>> = hashMapOf("3030" to arrayListOf(Restriction("5050"),Restriction("4040")) )
+    private var restrictionsMap: HashMap<String, ArrayList<Restriction>> = hashMapOf("3030" to arrayListOf(Restriction("5050"),Restriction("4040")) )
 
     override fun getRestriction(code: String): Restriction {
         return Restriction(code)
     }
 
     override fun getProductRestrictions(productCode: String): List<Restriction> {
-        return restrictionsMap.get(productCode)?: arrayListOf()
+        return restrictionsMap[productCode]?: arrayListOf()
     }
 
     override fun addRestrictionToProduct(productCode: String, restrictionCode: String): Boolean {

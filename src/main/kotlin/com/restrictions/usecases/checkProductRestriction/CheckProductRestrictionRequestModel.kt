@@ -8,4 +8,8 @@ class CheckProductRestrictionRequestModel(val product: String, val restriction: 
     fun getRestrictionCode(): String {
         return restriction
     }
+
+    fun isValid():Boolean{
+        return product.isNotBlank() && restriction.isNotBlank()
+    }
 }
