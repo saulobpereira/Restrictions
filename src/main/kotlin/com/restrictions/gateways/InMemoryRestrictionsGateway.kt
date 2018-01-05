@@ -1,10 +1,9 @@
-package com.restrictions.implementations
+package com.restrictions.gateways
 
 import com.restrictions.entities.Restriction
-import com.restrictions.gateways.RestrictionGateway
 
 class InMemoryRestrictionsGateway: RestrictionGateway {
-    private var restrictionsMap: HashMap<String, ArrayList<Restriction>> = hashMapOf("3030" to arrayListOf(Restriction("5050"),Restriction("4040")) )
+    private var restrictionsMap: HashMap<String, ArrayList<Restriction>> = hashMapOf("3030" to arrayListOf(Restriction("5050"), Restriction("4040")) )
 
     override fun getRestriction(code: String): Restriction {
         return Restriction(code)

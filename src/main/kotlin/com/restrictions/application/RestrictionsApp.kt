@@ -1,7 +1,7 @@
 package com.restrictions.application
 
 import com.restrictions.http.ParametersParser
-import com.restrictions.implementations.InMemoryRestrictionsGateway
+import com.restrictions.gateways.InMemoryRestrictionsGateway
 import com.restrictions.usecases.associateRestriction.AssociateRestriction
 import com.restrictions.usecases.associateRestriction.AssociateRestrictionController
 import com.restrictions.usecases.associateRestriction.AssociateRestrictionPresenter
