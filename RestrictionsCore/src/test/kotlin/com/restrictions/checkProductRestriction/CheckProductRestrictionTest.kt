@@ -1,6 +1,8 @@
-package com.restrictions.usecases.checkProductRestriction
+package com.restrictions.checkProductRestriction
 
 import com.restrictions.gateways.RestrictionGatewaySpy
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestriction
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionRequestModel
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
@@ -10,7 +12,7 @@ import org.junit.Assert.assertEquals
 
 object CheckProductRestrictionTest : Spek({
     describe("Check product restriction use case"){
-        val presenter = CheckProductRestrictionPresenter()
+        val presenter = CheckProductRestrictionPresenterSpy()
         val checker = CheckProductRestriction(RestrictionGatewaySpy())
         on("Check a product with restriction"){
             val input = CheckProductRestrictionRequestModel("p1", "r1")
