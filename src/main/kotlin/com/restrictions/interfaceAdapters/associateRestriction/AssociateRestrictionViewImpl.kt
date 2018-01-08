@@ -1,6 +1,8 @@
-package com.restrictions.usecases.associateRestriction
+package com.restrictions.interfaceAdapters.associateRestriction
 
-class AssociateRestrictionViewImpl:AssociateRestrictionView {
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionViewModel
+
+class AssociateRestrictionViewImpl: AssociateRestrictionView {
     override fun generateView(viewModel: AssociateRestrictionViewModel): String {
         if (viewModel.success){
             return "Restrição associada com sucesso"

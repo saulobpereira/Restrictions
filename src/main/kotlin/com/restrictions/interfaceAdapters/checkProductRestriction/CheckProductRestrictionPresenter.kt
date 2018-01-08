@@ -1,4 +1,8 @@
-package com.restrictions.usecases.checkProductRestriction
+package com.restrictions.interfaceAdapters.checkProductRestriction
+
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionOutputBoundary
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionResponseModel
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionViewModel
 
 class CheckProductRestrictionPresenter: CheckProductRestrictionOutputBoundary {
     var model = CheckProductRestrictionViewModel()

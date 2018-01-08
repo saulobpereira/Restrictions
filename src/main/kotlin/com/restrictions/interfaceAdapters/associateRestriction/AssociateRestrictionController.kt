@@ -1,7 +1,10 @@
-package com.restrictions.usecases.associateRestriction
+package com.restrictions.interfaceAdapters.associateRestriction
 
 import com.restrictions.http.Controller
 import com.restrictions.http.Parameters
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionInputBoundary
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionOutputBoundary
+import com.restrictions.usecases.associateRestriction.AssociateRestrictionRequestModel
 
 class AssociateRestrictionController(
         private val useCase: AssociateRestrictionInputBoundary,

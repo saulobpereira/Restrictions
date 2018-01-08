@@ -1,7 +1,10 @@
-package com.restrictions.usecases.checkProductRestriction
+package com.restrictions.interfaceAdapters.checkProductRestriction
 
 import com.restrictions.http.Controller
 import com.restrictions.http.Parameters
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionInputBoundary
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionOutputBoundary
+import com.restrictions.usecases.checkProductRestriction.CheckProductRestrictionRequestModel
 
 class CheckProductRestrictionController(
         private val useCase: CheckProductRestrictionInputBoundary,
